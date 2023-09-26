@@ -26,6 +26,7 @@ filepath = st.file_uploader("Upload your transcations CSV file from your TD Amer
 if filepath is not None:
     st.write(filepath)
     trades, filedir = ExtractData(filepath)
+    st.write(str(len(trades)))
 
 
 '''

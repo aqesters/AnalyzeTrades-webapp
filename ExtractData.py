@@ -6,24 +6,16 @@ Created on Fri Sep  8 22:07:44 2023
 @author: aesters
 """
 
-import tkinter as tk
-from tkinter import filedialog
 import re 
 import csv
 
-# import trade data from .csv file downloaded from TD Ameritrade
+# Input:
+    # 'filepath' == path to transactions CSV file uploaded by user
 # Returns:
     # 'trades' == raw trading data from input CSV file
     # 'filedir' == directory of the input CSV file
     
-def ExtractData():
-    print("---> Open the transactions CSV file through the pop-up.\n")
-    # select .csv file through dialog box
-    root = tk.Tk()   # instantiates and creates top-level window
-    root.withdraw()  # hide root window
-    filepath = filedialog.askopenfilename(initialdir='./')
-    root.destroy()
-    
+def ExtractData(filepath):
     # get the directory for this file, save data here later
     parts = re.split('/', filepath)
     i = -1 * len(parts[-1])  # index right before filename

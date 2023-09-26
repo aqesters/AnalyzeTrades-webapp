@@ -58,7 +58,7 @@ if uploaded_file is not None:
 
     # Write trade journal for all closed trades
     # STRUCTURE = [date open, date close, ticker, price open, price close, quantity, P/L, P/L %]
-    closedpos = CreateJournal(d, s, p, q, o, commsum, feesum, filedir)
+    closedpos = CreateJournal(d, s, p, q, o, commsum, feesum)
     
     # Plot data
     #date1, date2, amountsum = PlotData(closedpos, filedir)

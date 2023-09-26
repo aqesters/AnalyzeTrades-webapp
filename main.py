@@ -28,7 +28,6 @@ if uploaded_file is not None:
     trades = ExtractData(file_bytes)
     st.write(len(trades))
     st.write(trades)
-    st.stop()
 
     # check if data exists
     if len(trades) == 0:

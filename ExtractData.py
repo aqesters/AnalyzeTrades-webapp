@@ -25,8 +25,8 @@ def ExtractData(file):
     
     # import data from file
     print("Extracting...")
-    with open(file, newline='') as csvfile:
-        contents = csv.reader(csvfile, delimiter=',')
+    #with open(file, newline='') as csvfile:
+        contents = csv.reader(file, delimiter=',')
         linenum = 1
         headers = []
         trades = []

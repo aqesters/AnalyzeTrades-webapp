@@ -16,7 +16,7 @@ import csv
 #   Only use date from timeframe selected by user (see Timeframe function)
 #   Inputs should already be sorted by the dates (datetime objects)
 
-def CreateJournal(dates, symbols, prices, signedQty, options, commsum, feesum, filedir):
+def CreateJournal(dates, symbols, prices, signedQty, options, commsum, feesum):
     print("Creating trade journal...")
     startdate = dates[0]
     enddate = dates[-1]  
@@ -153,7 +153,7 @@ def CreateJournal(dates, symbols, prices, signedQty, options, commsum, feesum, f
     # create filename, header, and summary lines
     date1 = startdate.strftime('%Y%m%d')
     date2 = enddate.strftime('%Y%m%d')
-    filename = filedir + "TradeJournal_" + date1 + "_" + date2 + ".csv"
+    filename = "TradeJournal_" + date1 + "_" + date2 + ".csv"
     header = ['Date Open', 'Date Close', 'Ticker', 'Price Open', 'Price Close', 'Quantity', 'P/L', 'P/L %']
     plline = ['', '', 'Net Profit-Loss', '', '', '', '${:.2f}'.format(pl_sum), '']
     commline = ['', '', 'Total Commissions', '', '', '', '${:.2f}'.format(commsum), '']

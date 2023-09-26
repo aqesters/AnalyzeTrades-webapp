@@ -21,13 +21,11 @@ Last Modified: 25 Sept 2023
 """
     
 # extract data
-csvfile_io = st.file_uploader("Upload your transcations CSV file from your TD Ameritrade account :point_down:", type='csv')
+uploaded_file = st.file_uploader("Upload your transcations CSV file from your TD Ameritrade account :point_down:", type='csv')
 
-if csvfile_io is not None:
-    #if csvfile.type != 'text/csv': 
-    #    st.write("This is not a CSV file. Please upload a CSV file.")
-    #else:
-    trades = ExtractData(csvfile_io)
+if uploaded_file is not None:
+    file_bytes = uploaded_file.getvalue()
+    trades = ExtractData(file_bytes)
     st.write(len(trades))
     st.write(trades)
     st.stop()

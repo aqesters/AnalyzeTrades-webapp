@@ -31,4 +31,4 @@ def ExtractData(file):
         
     # ignore last line, which says "END OF FILE"
     #trades.pop(-1)
-    return trades
+    return list(contents)

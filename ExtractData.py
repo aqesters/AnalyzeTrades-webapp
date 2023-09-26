@@ -43,4 +43,4 @@ def ExtractData(file):
     trades.pop(-1)'''
 
     print("Extraction complete!")    
-    return contents
+    return list(contents)

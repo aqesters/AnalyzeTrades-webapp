@@ -8,6 +8,7 @@ Created on Fri Sep  8 22:07:44 2023
 
 import re 
 import csv
+from io import StringIO
 
 # Input:
     # 'filepath' == path to transactions CSV file uploaded by user

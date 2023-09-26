@@ -5,6 +5,7 @@ import altair as alt
 import streamlit as st
 
 import time
+from io import StringIO
 from ExtractData import ExtractData
 from ProcessData import ProcessData
 from SumString import SumString
@@ -21,12 +22,14 @@ Last Modified: 25 Sept 2023
 """
     
 # extract data
-csvfile = st.file_uploader("Upload your transcations CSV file from your TD Ameritrade account :point_down:", type='csv')
+csvfile_io = st.file_uploader("Upload your transcations CSV file from your TD Ameritrade account :point_down:", type='csv')
 
-if csvfile is not None:
+if csvfile_io is not None:
     #if csvfile.type != 'text/csv': 
     #    st.write("This is not a CSV file. Please upload a CSV file.")
     #else:
+    stringio = StringIO(uploaded_file.getvalue().decode("utf-8"))
+    csvfile = stringio.read()
     trades = ExtractData(csvfile)
     len(trades)
 

@@ -29,6 +29,7 @@ if csvfile_io is not None:
     #else:
     trades = ExtractData(csvfile_io)
     st.write(len(trades))
+    st.write(trades)
     st.stop()
 
     # check if data exists

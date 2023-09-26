@@ -37,8 +37,8 @@ if uploaded_file is not None:
     dates, tickers, amounts, options, comms, fees, symbols, prices, signedQty = ProcessData(trades)
     
     # user chooses timeframe
-    all_days = dates[-1] - dates[0]
-    ndays = st.slider(1, int(all_days), 30)
+    all_days = (dates[-1] - dates[0]).days    # extract num days from datetime.timedelta obj
+    ndays = st.slider(1, all_days, 30)
     start = Timeframe(dates, ndays)
     
     # isolate date from timeframe and plot

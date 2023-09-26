@@ -11,7 +11,6 @@ Created on Fri Sep  8 21:19:43 2023
 # - filedir == 
 
 import re
-import matplotlib.pyplot as plt
 import numpy as np 
 from SumString import SumString
 from matchsum import matchsum

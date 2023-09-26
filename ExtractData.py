@@ -26,10 +26,10 @@ def ExtractData(file):
     # import data from file
     print("Extracting...")
     #with open(file, newline='') as csvfile:
-        contents = csv.reader(file, delimiter=',')
-        linenum = 1
-        headers = []
-        trades = []
+    contents = csv.reader(file, delimiter=',')
+    linenum = 1
+    headers = []
+    trades = []
         
         '''# iterate through each row
         for row in contents:

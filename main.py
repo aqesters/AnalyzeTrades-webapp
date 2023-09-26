@@ -21,12 +21,11 @@ Last Modified: 25 Sept 2023
 """
     
 # extract data
-filepath = st.file_uploader("Upload your transcations CSV file from your TD Ameritrade account :point_down:", type='csv')
+csvfile = st.file_uploader("Upload your transcations CSV file from your TD Ameritrade account :point_down:", type='csv')
 
-if filepath is not None:
-    filepath
-    trades, filedir = ExtractData(filepath)
-    str(len(trades))
+if csvfile is not None:
+    "File: ", csvfile.name
+    trades, filedir = ExtractData(csvfile)
 
 
 '''

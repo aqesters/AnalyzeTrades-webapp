@@ -30,14 +30,14 @@ def ExtractData(file):
     linenum = 1
     headers = []
     trades = []
-        
-        '''# iterate through each row
-        for row in contents:
-            if linenum == 1:  # first row has headers
-                headers = row
-            else:
-                trades.append(row) # add row to list of trades
-            linenum += 1
+    
+    '''# iterate through each row
+    for row in contents:
+        if linenum == 1:  # first row has headers
+            headers = row
+        else:
+            trades.append(row) # add row to list of trades
+        linenum += 1
         
     # ignore last line, which says "END OF FILE"
     trades.pop(-1)'''

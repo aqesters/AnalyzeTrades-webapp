@@ -15,15 +15,17 @@ import csv
     # 'trades' == raw trading data from input CSV file
     # 'filedir' == directory of the input CSV file
     
-def ExtractData(filepath):
+def ExtractData(file):
+    '''
     # get the directory for this file, save data here later
     parts = re.split('/', filepath)
     i = -1 * len(parts[-1])  # index right before filename
     filedir = filepath[:i]
+    '''
     
     # import data from file
     print("Extracting...")
-    with open(filepath, newline='') as csvfile:
+    with open(file, newline='') as csvfile:
         contents = csv.reader(csvfile, delimiter=',')
         linenum = 1
         headers = []

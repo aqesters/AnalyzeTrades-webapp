@@ -28,7 +28,7 @@ if csvfile_io is not None:
     #if csvfile.type != 'text/csv': 
     #    st.write("This is not a CSV file. Please upload a CSV file.")
     #else:
-    stringio = StringIO(uploaded_file.getvalue().decode("utf-8"))
+    stringio = StringIO(csvfile_io.getvalue().decode("utf-8"))
     csvfile = stringio.read()
     trades = ExtractData(csvfile)
     len(trades)

@@ -21,9 +21,11 @@ Last Modified: 25 Sept 2023
 """
     
 # extract data
+filepath = None
 filepath = st.file_uploader("Upload your transcations CSV file from your TD Ameritrade account", type='csv')
 trades, filedir = ExtractData(filepath)
-st.write(filepath)
+if filepath is not None:
+    st.write(filepath)
 
 '''
 # check if data exists

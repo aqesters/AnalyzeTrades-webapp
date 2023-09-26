@@ -18,17 +18,17 @@ def ExtractData(file):
     
     # import data from file
     contents = csv.reader(file.splitlines())
-    linenum = 1
+    linenum = 0
     trades = []
     
     # iterate through each row
     for row in list(contents):
+        linenum += 1
         if linenum == 1:  # first row has headers
             continue
         else:
             trades.append(row) # add row to list of trades
-        linenum += 1
         
     # ignore last line, which says "END OF FILE"
-    #trades.pop(-1)
-    return list(contents)
+    trades.pop(-1)
+    return trades

@@ -8,7 +8,6 @@ Created on Fri Sep  8 22:07:44 2023
 
 import re 
 import csv
-from io import StringIO
 
 # Input:
     # 'filepath' == path to transactions CSV file uploaded by user
@@ -26,22 +25,22 @@ def ExtractData(file):
     
     # import data from file
     print("Extracting...")
-    stringio = StringIO(file.getvalue().decode("utf-8"))
-    csvfile = stringio.read()
-    #with open(file, newline='') as csvfile:
-    contents = csv.reader(csvfile, delimiter=',')
-    linenum = 1
-    headers = []
-    trades = []
-    # iterate through each row
-    for row in contents:
-        if linenum == 1:  # first row has headers
-            headers = row
-        else:
-            trades.append(row) # add row to list of trades
-        linenum += 1
+    with open(file, newline='') as csvfile:
+        contents = csv.reader(csvfile, delimiter=',')
+        linenum = 1
+        headers = []
+        trades = []
+        
+        # iterate through each row
+        for row in contents:
+            if linenum == 1:  # first row has headers
+                headers = row
+            else:
+                trades.append(row) # add row to list of trades
+            linenum += 1
+        
     # ignore last line, which says "END OF FILE"
     trades.pop(-1)
 
     print("Extraction complete!")    
-    return csvfile
+    return trades

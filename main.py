@@ -21,8 +21,11 @@ Last Modified: 25 Sept 2023
 """
     
 # extract data
-trades, filedir = ExtractData()
+filepath = st.file_uploader("Upload your transcations CSV file from your TD Ameritrade account", type='csv')
+trades, filedir = ExtractData(filepath)
+st.write(filepath)
 
+'''
 # check if data exists
 if len(trades) == 0:
     print('\nERROR: Data does not exist. Transactions file may be empty.')
@@ -87,5 +90,4 @@ while retry == 'Y':
         else:
             print('Answer not recognized. Please try again.')
 
-if __name__ == "__main__":
-    main()
+'''

@@ -8,7 +8,7 @@ Created on Fri Sep  8 22:07:44 2023
 
 import re 
 import csv
-
+from io import StringIO
 # Input:
     # 'filepath' == path to transactions CSV file uploaded by user
 # Returns:
@@ -26,7 +26,7 @@ def ExtractData(file):
     # import data from file
     print("Extracting...")
     #with open(file, newline='') as csvfile:
-    contents = csv.reader(file, delimiter=',')
+    contents = csv.reader(file.splitlines())
     linenum = 1
     headers = []
     trades = []

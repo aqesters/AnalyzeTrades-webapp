@@ -25,8 +25,6 @@ uploaded_file = st.file_uploader("Upload your transcations CSV file from your TD
 
 if uploaded_file is not None:
     file_bytes = uploaded_file.getvalue().decode("utf-8")
-    st.write(file_bytes)
-    st.stop()
     trades = ExtractData(file_bytes)
     st.write(len(trades))
     st.write(trades)

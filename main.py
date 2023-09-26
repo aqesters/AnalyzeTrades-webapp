@@ -28,7 +28,8 @@ if csvfile_io is not None:
     #    st.write("This is not a CSV file. Please upload a CSV file.")
     #else:
     trades = ExtractData(csvfile_io)
-    len(trades)
+    st.write(len(trades))
+    st.stop()
 
     # check if data exists
     if len(trades) == 0:

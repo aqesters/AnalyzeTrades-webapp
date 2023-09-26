@@ -24,9 +24,9 @@ Last Modified: 25 Sept 2023
 filepath = st.file_uploader("Upload your transcations CSV file from your TD Ameritrade account :point_down:", type='csv')
 
 if filepath is not None:
-    st.write(filepath)
+    filepath
     trades, filedir = ExtractData(filepath)
-    st.write(str(len(trades)))
+    str(len(trades))
 
 
 '''

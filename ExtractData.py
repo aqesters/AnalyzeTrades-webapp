@@ -44,4 +44,4 @@ def ExtractData(file):
     trades.pop(-1)
 
     print("Extraction complete!")    
-    return trades
+    return csvfile

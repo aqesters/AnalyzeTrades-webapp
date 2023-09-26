@@ -24,8 +24,10 @@ Last Modified: 25 Sept 2023
 csvfile = st.file_uploader("Upload your transcations CSV file from your TD Ameritrade account :point_down:", type='csv')
 
 if csvfile is not None:
-    "File: ", csvfile.name
-    trades, filedir = ExtractData(csvfile)
+    if csvfile.type != 'csv': 
+        st.write("Upload file is not a CSV file. Please upload a CSV file.")
+    else:
+        trades, filedir = ExtractData(csvfile)
 
 
 '''

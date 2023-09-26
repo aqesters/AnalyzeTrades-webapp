@@ -31,7 +31,7 @@ def ExtractData(file):
         headers = []
         trades = []
         
-        # iterate through each row
+        '''# iterate through each row
         for row in contents:
             if linenum == 1:  # first row has headers
                 headers = row
@@ -40,7 +40,7 @@ def ExtractData(file):
             linenum += 1
         
     # ignore last line, which says "END OF FILE"
-    trades.pop(-1)
+    trades.pop(-1)'''
 
     print("Extraction complete!")    
-    return trades
+    return contents

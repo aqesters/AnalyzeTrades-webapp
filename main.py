@@ -38,7 +38,7 @@ if uploaded_file is not None:
     
     # user chooses timeframe
     all_days = (dates[-1] - dates[0]).days    # extract num days from datetime.timedelta obj
-    ndays = st.slider("Summarize trading performance over last __ days:" 1, all_days, 30)
+    ndays = st.slider("Summarize trading performance over last __ days:", 1, all_days, 30)
     start = Timeframe(dates, ndays)
     
     # isolate date from timeframe and plot

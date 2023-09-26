@@ -38,7 +38,7 @@ if uploaded_file is not None:
     
     # user chooses timeframe
     all_days = dates[-1] - dates[0]
-    ndays = st.slider(1, all_days, 30)
+    ndays = st.slider(1, int(all_days), 30)
     start = Timeframe(dates, ndays)
     
     # isolate date from timeframe and plot

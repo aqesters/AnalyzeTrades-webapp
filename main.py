@@ -65,8 +65,8 @@ if uploaded_file is not None:
     # Summarize data
     grandsum = amountsum - commsum - feesum  
     line = "-----------------------------------"
-    st.write("# SUMMARY (", date1, " - ", date2, ")")
     st.write(line)
+    st.write("## SUMMARY (", date1, " - ", date2, ")")
     st.write("Trade Profit-Loss (ignores P/L Open): ${:.2f}".format(amountsum))
     st.write("Total Commissions: ${:.2f}".format(commsum))
     st.write("Total Fees: ${:.2f}".format(feesum))

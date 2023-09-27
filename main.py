@@ -26,7 +26,6 @@ uploaded_file = st.file_uploader("Upload your transcations CSV file from your TD
 if uploaded_file is not None:
     file_bytes = uploaded_file.getvalue().decode("utf-8")
     trades = ExtractData(file_bytes)
-    st.write(len(trades))
     st.write(trades)
 
     # check if data exists
@@ -62,6 +61,8 @@ if uploaded_file is not None:
     
     # Plot data
     date1, date2, amountsum, tickerNames, tickerPL, closeDates, trendingPL = PlotData(closedpos, filedir)
+    st.write(amountsum)
+    st.stop()
     
     # Summarize data
     grandsum = amountsum - commsum - feesum  

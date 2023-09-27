@@ -17,9 +17,9 @@ from CreateJournal import CreateJournal
 
 For TD Ameritrade users
 
-###Author: Ari Esters
+### Author: Ari Esters
 
-###Last Modified: 25 Sept 2023
+### Last Modified: 25 Sept 2023
 """
     
 # extract data

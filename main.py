@@ -60,7 +60,7 @@ if uploaded_file is not None:
     closedpos = CreateJournal(d, s, p, q, o, commsum, feesum)
     
     # Plot data
-    date1, date2, amountsum, tickerNames, tickerPL, closeDates, trendingPL = PlotData(closedpos, filedir)
+    date1, date2, amountsum, tickerNames, tickerPL, closeDates, trendingPL = PlotData(closedpos)
     
     # Summarize data
     grandsum = amountsum - commsum - feesum  

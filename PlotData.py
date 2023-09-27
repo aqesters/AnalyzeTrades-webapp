@@ -104,6 +104,12 @@ def PlotData(closedpos, filedir):
     plotname = filedir + 'TimePL.png'
     plt.savefig(plotname)
     print('\nPlot saved to {}'.format(plotname))
+
+    # arrange outputs
+    amountsum = SumString(amounts)    # total PL (excluding fees and commissions)
+    tickerNames = x
+    tickerPL = y
+    closeDates = x2
+    datePL = y2
     
-    amountsum = SumString(amounts)
-    return dt1, dt2, amountsum  # return start and end dates 
+    return dt1, dt2, amountsum, tickerNames, tickerPL, closeDates, datePL

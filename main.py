@@ -65,7 +65,7 @@ if uploaded_file is not None:
     
     # Plot data
     date1, date2, amountsum, tickerNames, tickerPL, closeDates, trendingPL = PlotData(closedpos)
-    tickerData = pd.concat([pd.DataFrame(tickerNames, column="Ticker"), pd.DataFrame(tickerPL, column="P/L")], axis=1)
+    tickerData = pd.concat([pd.DataFrame(tickerNames, columns=["Ticker"]), pd.DataFrame(tickerPL, columns=["P/L"])], axis=1)
     #trendData = pd.Dataframe(closeDates, trendingPL, columns=["Close Date", "P/L"])
     tickplot = (alt.Chart(tickerData)
                 .mark_circle()

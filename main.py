@@ -61,8 +61,6 @@ if uploaded_file is not None:
     
     # Plot data
     date1, date2, amountsum, tickerNames, tickerPL, closeDates, trendingPL = PlotData(closedpos, filedir)
-    st.write(amountsum)
-    st.stop()
     
     # Summarize data
     grandsum = amountsum - commsum - feesum  

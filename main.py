@@ -17,11 +17,13 @@ from CreateJournal import CreateJournal
 
 For TD Ameritrade users
 
-### Author: Ari Esters
+*Author: Ari Esters*
 
-### Last Modified: 25 Sept 2023
+*Last Modified: 25 Sept 2023*
 """
-    
+line = "-----------------------------------"
+st.write(line)
+
 # extract data
 uploaded_file = st.file_uploader("Upload your transcations CSV file from your TD Ameritrade account :point_down:", type='csv')
 
@@ -38,7 +40,7 @@ if uploaded_file is not None:
     
     # user chooses timeframe
     all_days = (dates[-1] - dates[0]).days    # extract num days from datetime.timedelta obj
-    st.write("\n\n")
+    st.write("\n" * 5)
     ndays = st.slider("Summarize trading performance over last __ days:", 1, all_days, 30)
     start = Timeframe(dates, ndays)
     
@@ -66,7 +68,6 @@ if uploaded_file is not None:
     
     # Summarize data
     grandsum = amountsum - commsum - feesum  
-    line = "-----------------------------------"
     st.write(line)
     st.write("## SUMMARY (", date1, " - ", date2, ")")
     st.write("Trade Profit-Loss (ignores P/L Open): ${:.2f}".format(amountsum))

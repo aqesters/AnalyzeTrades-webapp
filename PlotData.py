@@ -6,16 +6,19 @@ Created on Fri Sep  8 21:19:43 2023
 @author: aesters
 """
 
-# %% plot trading data
-# - closedpos == 
-# - filedir == 
+# Input:
+# closedpos == list of completed trades (opened and closed within timeframe)
+# Each element has multiple indeces (need to add details here)
+
+# Returns:
+# - a lot of stuff (explanation of outputs at end of function)
 
 import re
 import numpy as np 
 from SumString import SumString
 from matchsum import matchsum
 
-def PlotData(closedpos, filedir):
+def PlotData(closedpos):
     print("Plotting...")
     
     # isolate stock tickers and corresponding amounts
@@ -61,6 +64,7 @@ def PlotData(closedpos, filedir):
     # BAR PLOT - setup 
     tickerSums = matchsum(tickers, amounts, sortkeys=False, sortvals=True)
     x, y = zip(*tickerSums)
+    '''
     fig, ax = plt.subplots(figsize=(18,5))
     plt.bar(x,y)
     
@@ -75,9 +79,10 @@ def PlotData(closedpos, filedir):
     plt.grid(axis='y')
     plt.ylabel('Trading Profit/Loss ($)')
     plt.title('P/L by ticker ({} - {})'.format(dt1, dt2))
-    plotname = filedir + 'TickerPL.png'
+    plotname = 'TickerPL.png'
     plt.savefig(plotname)
     print('\nPlot saved to {}'.format(plotname))
+    '''
     
     # P/L TREND PLOT - set up
     closedPL = matchsum(closedates, amounts, sortkeys=True, sortvals=False)
@@ -87,6 +92,7 @@ def PlotData(closedpos, filedir):
     for PL in ytemp:
         totalPL += PL
         y2.append(totalPL)
+    '''
     fig, ax = plt.subplots()
     plt.plot(x2,y2)
     
@@ -101,9 +107,10 @@ def PlotData(closedpos, filedir):
     plt.ylabel('Total Profit/Loss ($)')
     
     plt.title('P/L over time ({} - {})'.format(dt1, dt2))
-    plotname = filedir + 'TimePL.png'
+    plotname = 'TimePL.png'
     plt.savefig(plotname)
     print('\nPlot saved to {}'.format(plotname))
+    '''
 
     # arrange outputs
     amountsum = SumString(amounts)    # total PL (excluding fees and commissions)

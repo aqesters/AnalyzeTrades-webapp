@@ -163,6 +163,7 @@ def CreateJournal(dates, symbols, prices, signedQty, options, commsum, feesum):
     summary = [plline, commline, feeline, totalline]
     
     # write to .csv file
+    '''
     with open(filename, 'w', newline='') as journal:
         writer = csv.writer(journal, delimiter=',')
         writer.writerow(header)
@@ -175,6 +176,6 @@ def CreateJournal(dates, symbols, prices, signedQty, options, commsum, feesum):
         # write summary lines
         for line in summary:
             writer.writerow(line)
-            
-    print("Trade journal complete! --> Saved as \'{}\'\n".format(filename))
+    '''
+
     return trades

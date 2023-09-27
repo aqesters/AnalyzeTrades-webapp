@@ -3,7 +3,7 @@
 
 import altair as alt
 import streamlit as st
-
+import pandas as pd
 import time
 from ExtractData import ExtractData
 from ProcessData import ProcessData
@@ -65,6 +65,12 @@ if uploaded_file is not None:
     
     # Plot data
     date1, date2, amountsum, tickerNames, tickerPL, closeDates, trendingPL = PlotData(closedpos)
+    tickerData = pd.DataFrame(tickerNames, tickerPL, columns=["Ticker", "P/L"])
+    trendData = pd.Dataframe(closeDates, trendingPL, columns=["Close Date", "P/L"])
+    tickplot = (alt.Chart(tickerData)
+                .mark_circle()
+                .encode(x="Ticker", y="P/L")
+    st.altair_chart(tickplot, use_container_width=True)
     
     # Summarize data
     grandsum = amountsum - commsum - feesum  

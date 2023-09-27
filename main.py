@@ -15,9 +15,11 @@ from CreateJournal import CreateJournal
 """
 # AnalyzeTrades v1.3
 
-Author: Ari Esters
+For TD Ameritrade users
 
-Last Modified: 25 Sept 2023
+###Author: Ari Esters
+
+###Last Modified: 25 Sept 2023
 """
     
 # extract data

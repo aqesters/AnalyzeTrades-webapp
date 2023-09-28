@@ -69,7 +69,7 @@ if uploaded_file is not None:
     trendData = pd.concat([pd.DataFrame(closeDates, columns=["Close Date"]), pd.DataFrame(trendingPL, columns=["P/L"])], axis=1)
 
     # line chart for trending profit-loss data
-    trendplot = alt.Chart(trendData).mark.line().encode(
+    trendplot = alt.Chart(trendData).mark_line().encode(
         alt.X("Close Date:T"), 
         alt.Y("P/L:Q", axis=alt.Axis(format='$,.2f'))
     )

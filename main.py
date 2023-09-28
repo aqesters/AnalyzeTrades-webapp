@@ -71,8 +71,7 @@ if uploaded_file is not None:
     ### Line chart for trending profit-loss data
     trendplot = alt.Chart(trendData).mark_line().encode(
         alt.X("Close Date:T"), 
-        alt.Y("P/L:Q", axis=alt.Axis(format='$,.2f')),
-        tooltip=[]
+        alt.Y("P/L:Q", axis=alt.Axis(format='$,.2f'))
     )
     
     # Create a selection for the nearest point
@@ -91,7 +90,7 @@ if uploaded_file is not None:
     )
 
     # Finally, combine the layers and plot line chart
-    trendplot = trendplot + selectors + points
+    trendplot = trendplot + points
     st.altair_chart(trendplot, use_container_width=True, theme="streamlit")
 
     ### Bar chart for profit-loss by ticker

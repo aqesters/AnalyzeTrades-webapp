@@ -73,7 +73,7 @@ if uploaded_file is not None:
         alt.X("Close Date:T"), 
         alt.Y("P/L:Q", axis=alt.Axis(format='$,.2f'))
     )
-    st.altair_chart(trendplot, use_container_width=True, theme="streamlit)
+    st.altair_chart(trendplot, use_container_width=True, theme="streamlit")
 
     # bar chart for profit-loss by ticker
     tickplot = alt.Chart(tickerData).mark_bar().encode(

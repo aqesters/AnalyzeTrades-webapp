@@ -85,8 +85,8 @@ if uploaded_file is not None:
     
     # Add the main line chart and enable tooltips for the nearest point
     points = trendplot.mark_point().encode(
-        opacity=alt.condition(nearest, alt.value(1), alt.value(0)),
-        tooltip=["Close Date:T", "P/L:Q"]  # Display x and y values in the tooltip
+        opacity=alt.condition(nearest, alt.value(1), alt.value(0))
+        #tooltip=["Close Date:T", "P/L:Q"]  # Display x and y values in the tooltip
     )
 
     # Finally, combine the layers and plot line chart

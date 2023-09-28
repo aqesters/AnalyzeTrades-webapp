@@ -90,7 +90,7 @@ if uploaded_file is not None:
     )
 
     # Finally, combine the layers and plot line chart
-    trendplot = trendplot + points
+    trendplot = trendplot + selectors + points
     st.altair_chart(trendplot, use_container_width=True, theme="streamlit")
 
     ### Bar chart for profit-loss by ticker

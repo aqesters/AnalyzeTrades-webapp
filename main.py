@@ -75,7 +75,7 @@ if uploaded_file is not None:
     )
     
     # Create a selection for the nearest point
-    nearest = alt.selection(type='single', nearest=True, on='mouseover', fields=['Close Date'], empty='none')
+    nearest = alt.selection(type='single', nearest=True, on='mouseover', fields=['Close Date'], empty='False')
     
     # Add a transparent layer to capture mouseover events
     selectors = alt.Chart(trendData).mark_point().encode(

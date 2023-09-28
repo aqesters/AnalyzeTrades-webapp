@@ -25,7 +25,7 @@ line = "-----------------------------------"
 st.write(line)
 
 # extract data
-uploaded_file = st.file_uploader("Upload your transcations CSV file from your TD Ameritrade account :point_down:", type='csv')
+uploaded_file = st.file_uploader("Upload your transactions CSV file from your TD Ameritrade account :point_down:", type='csv')
 
 if uploaded_file is not None:
     file_bytes = uploaded_file.getvalue().decode("utf-8")
@@ -68,7 +68,7 @@ if uploaded_file is not None:
     tickerData = pd.concat([pd.DataFrame(tickerNames, columns=["Ticker"]), pd.DataFrame(tickerPL, columns=["P/L"])], axis=1)
     #trendData = pd.Dataframe(closeDates, trendingPL, columns=["Close Date", "P/L"])
     tickplot = (alt.Chart(tickerData)
-                .mark_circle()
+                .mark_bar()
                 .encode(x="Ticker", y="P/L"))
     st.altair_chart(tickplot, use_container_width=True)
     

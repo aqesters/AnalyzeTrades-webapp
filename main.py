@@ -69,7 +69,7 @@ if uploaded_file is not None:
     #trendData = pd.Dataframe(closeDates, trendingPL, columns=["Close Date", "P/L"])
     tickplot = (alt.Chart(tickerData)
                 .mark_bar()
-                .encode(x="Ticker", y="P/L"))
+                .encode(x="Ticker", y="P/L", order="P/L"))
     st.altair_chart(tickplot, use_container_width=True)
 
     st.write(tickerNames)

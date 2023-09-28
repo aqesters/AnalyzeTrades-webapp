@@ -62,6 +62,9 @@ if uploaded_file is not None:
     # Write trade journal for all closed trades
     # STRUCTURE = [date open, date close, ticker, price open, price close, quantity, P/L, P/L %]
     closedpos = CreateJournal(d, s, p, q, o, commsum, feesum)
+
+    st.write(tickerNames)
+    st.write(tickerPL)
     
     # Plot data
     date1, date2, amountsum, tickerNames, tickerPL, closeDates, trendingPL = PlotData(closedpos)
@@ -71,6 +74,8 @@ if uploaded_file is not None:
                 .mark_bar()
                 .encode(x="Ticker", y="P/L"))
     st.altair_chart(tickplot, use_container_width=True)
+
+    st.write(tickerData)
     
     # Summarize data
     grandsum = amountsum - commsum - feesum  

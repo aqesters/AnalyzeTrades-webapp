@@ -19,7 +19,7 @@ from CreateJournal import CreateJournal
 
 *Author: Ari Esters*
 
-*Last Modified: 25 Sept 2023*
+*Last Modified: 27 Sept 2023*
 """
 line = "-----------------------------------"
 st.write(line)

@@ -68,7 +68,7 @@ if uploaded_file is not None:
     tickerData = pd.concat([pd.DataFrame(tickerNames, columns=["Ticker"]), pd.DataFrame(tickerPL, columns=["P/L"])], axis=1)
     #trendData = pd.Dataframe(closeDates, trendingPL, columns=["Close Date", "P/L"])
     tickplot = alt.Chart(tickerData).mark_bar().encode(
-        alt.X("Ticker", sort="-y"),
+        alt.X("Ticker", sort="y"),
         alt.Y("P/L")
     )
     st.altair_chart(tickplot, use_container_width=True)

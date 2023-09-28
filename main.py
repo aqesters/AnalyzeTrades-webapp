@@ -71,7 +71,8 @@ if uploaded_file is not None:
     ### Line chart for trending profit-loss data
     trendplot = alt.Chart(trendData).mark_line().encode(
         alt.X("Close Date:T"), 
-        alt.Y("P/L:Q", axis=alt.Axis(format='$,.2f'))
+        alt.Y("P/L:Q", axis=alt.Axis(format='$,.2f')),
+        tooltip="none"
     )
     
     # Create a selection for the nearest point

@@ -68,19 +68,38 @@ if uploaded_file is not None:
     tickerData = pd.concat([pd.DataFrame(tickerNames, columns=["Ticker"]), pd.DataFrame(tickerPL, columns=["P/L"])], axis=1)
     trendData = pd.concat([pd.DataFrame(closeDates, columns=["Close Date"]), pd.DataFrame(trendingPL, columns=["P/L"])], axis=1)
 
-    # line chart for trending profit-loss data
+    ### Line chart for trending profit-loss data
     trendplot = alt.Chart(trendData).mark_line().encode(
         alt.X("Close Date:T"), 
-        alt.Y("P/L:Q", axis=alt.Axis(format='$,.2f')),
-        tooltip="P/L"
+        alt.Y("P/L:Q", axis=alt.Axis(format='$,.2f'))
     )
+    
+    # Create a selection for the nearest point
+    nearest = alt.selection(type='single', nearest=True, on='mouseover', fields=['Close Date'], empty='none')
+    
+    # Add a transparent layer to capture mouseover events
+    selectors = alt.Chart(data).mark_point().encode(
+        x='Close Date:T',
+        opacity=alt.value(0),
+    ).add_selection(nearest)
+    
+    # Add the main line chart and enable tooltips for the nearest point
+    points = trendplot.mark_point().encode(
+        opacity=alt.condition(nearest, alt.value(1), alt.value(0)),
+        tooltip=['Close Date:T', 'P/L:Q']  # Display x and y values in the tooltip
+    )
+
+    # Finally, combine the layers and plot line chart
+    trendplot = trendplot + selectors + points
     st.altair_chart(trendplot, use_container_width=True, theme="streamlit")
 
-    # bar chart for profit-loss by ticker
+    ### Bar chart for profit-loss by ticker
     tickplot = alt.Chart(tickerData).mark_bar().encode(
         alt.X("Ticker:N", sort="y"),
         alt.Y("P/L:Q", axis=alt.Axis(format='$,.2f'))
     )
+
+    # Plot bar chart
     st.altair_chart(tickplot, use_container_width=True, theme="streamlit")
     
     # Summarize data

@@ -71,7 +71,8 @@ if uploaded_file is not None:
     # line chart for trending profit-loss data
     trendplot = alt.Chart(trendData).mark_line().encode(
         alt.X("Close Date:T"), 
-        alt.Y("P/L:Q", axis=alt.Axis(format='$,.2f'))
+        alt.Y("P/L:Q", axis=alt.Axis(format='$,.2f')),
+        tooltip="P/L"
     )
     st.altair_chart(trendplot, use_container_width=True, theme="streamlit")
 

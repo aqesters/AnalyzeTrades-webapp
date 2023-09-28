@@ -71,7 +71,7 @@ if uploaded_file is not None:
         alt.X("Ticker", sort="y"),
         alt.Y("P/L")
     )
-    st.altair_chart(tickplot, use_container_width=True)
+    st.altair_chart(tickplot, use_container_width=True, theme="streamlit")
 
     st.write(tickerNames)
     st.write(tickerPL)

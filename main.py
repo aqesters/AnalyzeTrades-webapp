@@ -63,19 +63,24 @@ if uploaded_file is not None:
     # STRUCTURE = [date open, date close, ticker, price open, price close, quantity, P/L, P/L %]
     closedpos = CreateJournal(d, s, p, q, o, commsum, feesum)
     
-    # Plot data
+    # Prep data for plotting
     date1, date2, amountsum, tickerNames, tickerPL, closeDates, trendingPL = PlotData(closedpos)
     tickerData = pd.concat([pd.DataFrame(tickerNames, columns=["Ticker"]), pd.DataFrame(tickerPL, columns=["P/L"])], axis=1)
-    #trendData = pd.Dataframe(closeDates, trendingPL, columns=["Close Date", "P/L"])
+    trendData = pd.concat([pd.DataFrame(closeDates, columns=["Close Date"]), pd.DataFrame(trendingPL, columns=["P/L"])], axis=1)
+
+    # line chart for trending profit-loss data
+    trendplot = alt.Chart(trendData).mark.line().encode(
+        alt.X("Close Date:T"), 
+        alt.Y("P/L:Q", axis=alt.Axis(format='$,.2f'))
+    )
+    st.altair_chart(trendplot, use_container_width=True, theme="streamlit)
+
+    # bar chart for profit-loss by ticker
     tickplot = alt.Chart(tickerData).mark_bar().encode(
-        alt.X("Ticker", sort="y"),
-        alt.Y("P/L")
+        alt.X("Ticker:N", sort="y"),
+        alt.Y("P/L:Q", axis=alt.Axis(format='$,.2f'))
     )
     st.altair_chart(tickplot, use_container_width=True, theme="streamlit")
-
-    st.write(tickerNames)
-    st.write(tickerPL)
-    st.write(tickerData)
     
     # Summarize data
     grandsum = amountsum - commsum - feesum  

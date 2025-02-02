@@ -1,13 +1,14 @@
-Instructions for using AnalyzeTrades application:
+# Instructions for using AnalyzeTrades application*
+*Note: Only works if you actively trade on TD Ameritrade or ThinkOrSwim
 
-Download your "transactions" file:
+## Download your "transactions" file:
 1. Go to tdameritrade.com and log in.
 2. In the menu bar at the top, go to My Account > History and Statements > Transactions
 3. Here, you can select the dates for which you want to download your transactions (up to a year). Select dates from one year ago to today's date.
 4. Make sure "Hide sweeps" is checked.
 5. Click "Download", and save this file wherever you want.
 
-Running the application:
+## Running the application:
 1. Run main.py. The terminal should pop up.
 2. After a while, the terminal will tell you to open the "transactions" file through the popup.
 3. Use the dialog window to select the "transactions" file.
